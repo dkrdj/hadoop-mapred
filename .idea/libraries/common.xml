@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="common">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/common/hadoop-common-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/common/hadoop-nfs-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/common/hadoop-common-3.2.2-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/common/hadoop-kms-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

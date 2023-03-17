@@ -1,0 +1,30 @@
+<component name="libraryTable">
+  <library name="lib5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/guice-servlet-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/jersey-client-1.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/bcprov-jdk15on-1.60.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/jersey-guice-1.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/snakeyaml-1.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/fst-2.50.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/metrics-core-3.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/bcpkix-jdk15on-1.60.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/java-util-1.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/json-io-2.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/objenesis-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/jackson-jaxrs-base-2.9.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/ehcache-3.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/guice-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

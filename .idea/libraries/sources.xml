@@ -1,0 +1,28 @@
+<component name="libraryTable">
+  <library name="sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-archive-logs-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-sls-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-datajoin-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-gridmix-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-archives-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-archives-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-resourceestimator-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-extras-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-distcp-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-extras-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-resourceestimator-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-rumen-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-gridmix-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-streaming-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-sls-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-datajoin-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-rumen-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-streaming-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-distcp-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/tools/sources/hadoop-archive-logs-3.2.2-test-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

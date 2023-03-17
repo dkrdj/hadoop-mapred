@@ -1,0 +1,34 @@
+<component name="libraryTable">
+  <library name="sources4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-common-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-tests-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-services-api-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-common-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-client-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-services-api-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-applications-distributedshell-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-services-core-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-resourcemanager-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-common-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-web-proxy-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-applications-unmanaged-am-launcher-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-applicationhistoryservice-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-api-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-api-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-tests-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-nodemanager-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-resourcemanager-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-applications-unmanaged-am-launcher-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-services-core-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-common-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-web-proxy-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-nodemanager-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-applications-distributedshell-3.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-client-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/sources/hadoop-yarn-server-applicationhistoryservice-3.2.2-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

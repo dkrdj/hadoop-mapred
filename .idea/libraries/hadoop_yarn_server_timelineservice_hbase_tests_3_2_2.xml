@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hadoop-yarn-server-timelineservice-hbase-tests-3.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/test/hadoop-yarn-server-timelineservice-hbase-tests-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

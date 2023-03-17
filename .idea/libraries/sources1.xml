@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="sources1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/common/sources/hadoop-common-3.2.2-test-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/common/sources/hadoop-common-3.2.2-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

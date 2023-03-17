@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/commons-csv-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/hbase-protocol-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/hbase-annotations-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/metrics-core-2.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/hbase-client-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/htrace-core-3.1.0-incubating.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/jcodings-1.0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/hbase-common-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/lib/joni-2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

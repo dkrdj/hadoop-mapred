@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="yarn">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-services-api-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-services-core-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-router-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-registry-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-submarine-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-common-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-common-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-client-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-tests-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-api-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

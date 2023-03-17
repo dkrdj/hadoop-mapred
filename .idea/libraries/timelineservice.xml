@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="timelineservice">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/hadoop-yarn-server-timelineservice-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/hadoop-yarn-server-timelineservice-hbase-client-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/hadoop-yarn-server-timelineservice-hbase-coprocessor-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/timelineservice/hadoop-yarn-server-timelineservice-hbase-common-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

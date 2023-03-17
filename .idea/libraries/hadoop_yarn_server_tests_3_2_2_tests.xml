@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hadoop-yarn-server-tests-3.2.2-tests">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/hadoop-3.2.2/share/hadoop/yarn/test/hadoop-yarn-server-tests-3.2.2-tests.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
