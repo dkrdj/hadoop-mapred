@@ -28,13 +28,13 @@ public class Wordcount {
 
         // let hadoop know my map and reduce classes
         job.setMapperClass(TokenizerMapper.class);
-        job.setReducerClass(IntSumReducer.class);
+//        job.setReducerClass(IntSumReducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
         // set number of reduces
-        job.setNumReduceTasks(2);
+        job.setNumReduceTasks(0);
 
         // set input and output directories
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
