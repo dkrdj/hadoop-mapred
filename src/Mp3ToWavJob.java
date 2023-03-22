@@ -25,10 +25,9 @@ public class Mp3ToWavJob {
         job.setMapperClass(Mp3FileMapper.class);
         job.setInputFormatClass(Mp3InputFormat.class);
 
-        job.setReducerClass(Reducerer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
-        job.setNumReduceTasks(1);
+        job.setNumReduceTasks(5);
 
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));

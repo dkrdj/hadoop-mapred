@@ -9,11 +9,10 @@ import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.ByteBuffer;
 
 public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
@@ -40,17 +39,16 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
             if (!processed) {
+                URL url;
                 try {
-                    System.out.println(path.toUri().toURL().toString());
-                    AudioInputStream in = AudioSystem.getAudioInputStream(path.toUri().toURL());
-                    ByteBuffer buffer = ByteBuffer.allocate(in.available());
-                    in.read(buffer.array());
-                    value.set(buffer.array(), 0, buffer.array().length);
-                } catch (UnsupportedAudioFileException e) {
-                    e.printStackTrace();
-                } catch (MalformedURLException e){
+                    url = path.toUri().toURL();
+                } catch (MalformedURLException e) {
                     return false;
                 }
+                BufferedInputStream in = new BufferedInputStream(url.openStream());
+                ByteBuffer buffer = ByteBuffer.allocate(in.available());
+                in.read(buffer.array());
+                value.set(buffer.array(), 0, buffer.array().length);
                 processed = true;
                 return true;
             }
