@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
 
 public class Wordcount {
@@ -68,11 +68,31 @@ public class Wordcount {
             FSDataInputStream inputStream = fs.open(inFile);
             ByteBuffer buffer = ByteBuffer.allocate(inputStream.available());
             inputStream.read(buffer.array());
+            inputStream.close();
+
+            String src = value.toString();
+            File file = new File(src);
+            if (!file.exists()) {
+                new File(src.split("/")[0]).mkdirs();
+                file.createNewFile();
+            }
+
+
+            FileOutputStream localOutput = new FileOutputStream(file);
+            localOutput.write(buffer.array());
+            localOutput.close();
+
+            BufferedInputStream in = new BufferedInputStream(new FileInputStream("Ben - 끝까지.mp3"));
+            ByteBuffer localBuffer = ByteBuffer.allocate(in.available());
+            in.read(localBuffer.array());
+            in.close();
+
+
             String outputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/out/" + value.toString();
             Path outFile = new Path(outputSrc);
             FSDataOutputStream outputStream = fs.create(outFile);
-            outputStream.write(buffer.array());
-
+            outputStream.write(localBuffer.array());
+            outputStream.close();
             word.set(inputSrc);
             context.write(word, one);
         }
