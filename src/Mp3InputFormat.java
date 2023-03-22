@@ -13,6 +13,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.ByteBuffer;
 
 public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
@@ -39,7 +40,6 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
             if (!processed) {
-                // && !path.toUri().toURL().toString().equals("hdfs://")
                 try {
                     System.out.println(path.toUri().toURL().toString());
                     AudioInputStream in = AudioSystem.getAudioInputStream(path.toUri().toURL());
@@ -47,6 +47,8 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
                     in.read(buffer.array());
                     value.set(buffer.array(), 0, buffer.array().length);
                 } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                } catch (MalformedURLException e){
                     return false;
                 }
                 processed = true;
