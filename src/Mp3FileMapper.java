@@ -24,10 +24,8 @@ public class Mp3FileMapper extends Mapper<Path, BytesWritable, Path, BytesWritab
 
         outputStream.close(); // 스트림을 닫습니다.
 
-        String result = src;
-
-        BufferedInputStream in = new BufferedInputStream(new FileInputStream(result));
-        ByteBuffer buffer = ByteBuffer.allocate(in.available());
+        BufferedInputStream in = new BufferedInputStream(new FileInputStream(src));
+        ByteBuffer buffer = ByteBuffer.allocate(in.available() + 1);
         in.read(buffer.array());
         in.close();
         BytesWritable output = new BytesWritable();

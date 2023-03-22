@@ -16,6 +16,8 @@ import java.net.URL;
 import java.nio.ByteBuffer;
 
 public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
+    public Mp3InputFormat() {
+    }
 
     public RecordReader<Path, BytesWritable> createRecordReader(InputSplit split, TaskAttemptContext context) throws IOException, InterruptedException {
         Mp3RecordReader reader = new Mp3RecordReader();
@@ -33,11 +35,15 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
         private BytesWritable value = new BytesWritable();
         private boolean processed = false;
 
+        public Mp3RecordReader() {
+        }
+
         public void initialize(InputSplit split, TaskAttemptContext context) throws IOException, InterruptedException {
             path = ((FileSplit) split).getPath();
         }
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
+
             if (!processed) {
                 URL url;
                 try {
