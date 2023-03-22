@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.StringTokenizer;
 
 public class Wordcount {
     /* Main function */
@@ -34,13 +35,13 @@ public class Wordcount {
 
         // let hadoop know my map and reduce classes
         job.setMapperClass(TokenizerMapper.class);
-//        job.setReducerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
         // set number of reduces
-        job.setNumReduceTasks(0);
+        job.setNumReduceTasks(10);
 
         // set input and output directories
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
@@ -53,7 +54,7 @@ public class Wordcount {
     Text, IntWritable : output key-value pair type
     */
     public static class TokenizerMapper
-            extends Mapper<Object, Text, Text, IntWritable> {
+            extends Mapper<Object, Text, Text, Text> {
 
         // variable declairations
         private final static IntWritable one = new IntWritable(1);
@@ -63,7 +64,31 @@ public class Wordcount {
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
 
-            // value.toString() : get a line
+            StringTokenizer itr = new StringTokenizer(value.toString());
+            while (itr.hasMoreTokens()) {
+                word.set(itr.nextToken());
+
+                // emit a key-value pair
+                context.write(word, word);
+            }
+        }
+    }
+
+    /*
+    Text, IntWritable : input key type and the value type of input value list
+    Text, IntWritable : output key-value pair type
+    */
+    public static class IntSumReducer
+            extends Reducer<Text, Text, Text, Text> {
+
+        // variables
+        private IntWritable result = new IntWritable();
+
+        // key : a disticnt word
+        // values :  Iterable type (data list)
+        public void reduce(Text key, Text value, Context context)
+                throws IOException, InterruptedException {
+
             String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value.toString();
             Path inFile = new Path(inputSrc);
             Configuration conf = context.getConfiguration();
@@ -98,32 +123,7 @@ public class Wordcount {
             FSDataOutputStream outputStream = fs.create(outFile);
             outputStream.write(localBuffer.array());
             outputStream.close();
-            word.set(inputSrc);
-            context.write(word, one);
-        }
-    }
-
-    /*
-    Text, IntWritable : input key type and the value type of input value list
-    Text, IntWritable : output key-value pair type
-    */
-    public static class IntSumReducer
-            extends Reducer<Text, IntWritable, Text, IntWritable> {
-
-        // variables
-        private IntWritable result = new IntWritable();
-
-        // key : a disticnt word
-        // values :  Iterable type (data list)
-        public void reduce(Text key, Iterable<IntWritable> values, Context context)
-                throws IOException, InterruptedException {
-
-            int sum = 0;
-            for (IntWritable val : values) {
-                sum += val.get();
-            }
-            result.set(sum);
-            context.write(key, result);
+            context.write(key, value);
         }
     }
 }
