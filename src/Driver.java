@@ -7,10 +7,8 @@ public class Driver {
 		int exitCode = -1;
 		ProgramDriver pgd = new ProgramDriver();
 		try {
-
-//			pgd.addClass("wordcount", Wordcount.class, "A map/reduce program that performs word counting.");
 			pgd.addClass("mp3ToWavJob", Mp3ToWavJob.class,"A map/reduce program that performs mp3ToWavJob.");
-      			pgd.driver(args);
+			pgd.driver(args);
 			exitCode = 0;
 		}
 		catch(Throwable e) {

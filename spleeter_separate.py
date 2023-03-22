@@ -1,10 +1,6 @@
 import os
 import sys
 import json
-import subprocess
-
-# spleeter 모듈 설치 경로 추가
-sys.path.append('/path/to/spleeter')
 
 # spleeter 모듈 임포트
 from spleeter.separator import Separator
