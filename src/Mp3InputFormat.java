@@ -1,5 +1,6 @@
 package ssafy;
 
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.mapreduce.InputSplit;
@@ -34,7 +35,8 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
         private boolean processed = false;
 
         public void initialize(InputSplit split, TaskAttemptContext context) throws IOException, InterruptedException {
-            path = ((FileSplit) split).getPath();
+            FileSystem fs = FileSystem.get(context.getConfiguration());
+            path = fs.makeQualified(((FileSplit) split).getPath());
         }
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
