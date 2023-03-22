@@ -53,7 +53,7 @@ public class Wordcount {
     Text, IntWritable : output key-value pair type
     */
     public static class TokenizerMapper
-            extends Mapper<Object, Text, Text, Text> {
+            extends Mapper<Object, Text, IntWritable, Text> {
 
         // variable declairations
         private final static IntWritable one = new IntWritable(1);
@@ -63,12 +63,13 @@ public class Wordcount {
                 throws IOException, InterruptedException {
 
             String[] split = value.toString().split("\n");
+            int idx = 1;
             for (String str : split) {
                 Text word = new Text();
                 word.set(str);
 
                 // emit a key-value pair
-                context.write(word, word);
+                context.write(new IntWritable(idx++), word);
             }
         }
     }
@@ -78,9 +79,9 @@ public class Wordcount {
     Text, IntWritable : output key-value pair type
     */
     public static class IntSumReducer
-            extends Reducer<Text, Text, Text, Text> {
+            extends Reducer<IntWritable, Text, IntWritable, Text> {
 
-        public void reduce(Text key, Text value, Context context)
+        public void reduce(IntWritable key, Text value, Context context)
                 throws IOException, InterruptedException {
 
             String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value;
@@ -117,7 +118,7 @@ public class Wordcount {
             FSDataOutputStream outputStream = fs.create(outFile);
             outputStream.write(localBuffer.array());
             outputStream.close();
-            context.write(key, value);
+            context.write(key, new Text(inputSrc + " " + outputSrc));
         }
     }
 }
