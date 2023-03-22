@@ -1,6 +1,9 @@
 package ssafy;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -12,7 +15,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
+import java.nio.ByteBuffer;
 
 public class Wordcount {
     /* Main function */
@@ -58,13 +61,20 @@ public class Wordcount {
                 throws IOException, InterruptedException {
 
             // value.toString() : get a line
-            StringTokenizer itr = new StringTokenizer(value.toString());
-            while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken());
+            String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value.toString();
+            Path inFile = new Path(inputSrc);
+            Configuration conf = context.getConfiguration();
+            FileSystem fs = FileSystem.get(conf);
+            FSDataInputStream inputStream = fs.open(inFile);
+            ByteBuffer buffer = ByteBuffer.allocate(inputStream.available());
+            inputStream.read(buffer.array());
+            String outputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/out/" + value.toString();
+            Path outFile = new Path(outputSrc);
+            FSDataOutputStream outputStream = fs.create(outFile);
+            outputStream.write(buffer.array());
 
-                // emit a key-value pair
-                context.write(word, one);
-            }
+            word.set(inputSrc);
+            context.write(word, one);
         }
     }
 
