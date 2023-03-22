@@ -19,7 +19,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.StringTokenizer;
 
 public class Wordcount {
     /* Main function */
@@ -64,9 +63,9 @@ public class Wordcount {
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
 
-            StringTokenizer itr = new StringTokenizer(value.toString());
-            while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken());
+            String[] split = value.toString().split("\n");
+            for (String str : split) {
+                word.set(str);
 
                 // emit a key-value pair
                 context.write(word, word);
