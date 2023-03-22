@@ -31,7 +31,7 @@ public class Mp3ToWavJob extends Configured implements Tool {
 
         job.setJarByClass(Mp3ToWavJob.class);
         job.setMapperClass(Mp3FileMapper.class);
-//        job.setInputFormatClass(Mp3InputFormat.class);
+        job.setInputFormatClass(Mp3InputFormat.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         job.setNumReduceTasks(0);
