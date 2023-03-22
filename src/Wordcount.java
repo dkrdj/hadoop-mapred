@@ -36,7 +36,7 @@ public class Wordcount {
         job.setMapperClass(TokenizerMapper.class);
         job.setReducerClass(IntSumReducer.class);
 
-        job.setOutputKeyClass(IntWritable.class);
+        job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
         // set number of reduces
