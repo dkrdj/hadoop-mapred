@@ -36,7 +36,7 @@ public class Wordcount {
         job.setMapperClass(TokenizerMapper.class);
         job.setReducerClass(IntSumReducer.class);
 
-        job.setOutputKeyClass(IntWritable.class);
+        job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
         // set number of reduces
@@ -69,7 +69,8 @@ public class Wordcount {
                 word.set(str);
 
                 // emit a key-value pair
-                context.write(new IntWritable(idx++), word);
+                context.write(new IntWritable(idx), word);
+                idx++;
             }
         }
     }
@@ -79,7 +80,7 @@ public class Wordcount {
     Text, IntWritable : output key-value pair type
     */
     public static class IntSumReducer
-            extends Reducer<IntWritable, Text, IntWritable, Text> {
+            extends Reducer<IntWritable, Text, Text, Text> {
 
         public void reduce(IntWritable key, Text value, Context context)
                 throws IOException, InterruptedException {
@@ -118,7 +119,7 @@ public class Wordcount {
             FSDataOutputStream outputStream = fs.create(outFile);
             outputStream.write(localBuffer.array());
             outputStream.close();
-            context.write(key, new Text(inputSrc + " " + outputSrc));
+            context.write(new Text(inputSrc), new Text(outputSrc));
         }
     }
 }
