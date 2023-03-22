@@ -38,7 +38,7 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
         }
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
-            if (!processed) {
+            if (!processed && !path.toUri().toURL().toString().equals("hdfs")) {
                 try {
                     AudioInputStream in = AudioSystem.getAudioInputStream(path.toUri().toURL());
                     ByteBuffer buffer = ByteBuffer.allocate(in.available());
