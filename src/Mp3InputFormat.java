@@ -1,6 +1,5 @@
 package ssafy;
 
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.mapreduce.InputSplit;
@@ -35,19 +34,18 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
         private boolean processed = false;
 
         public void initialize(InputSplit split, TaskAttemptContext context) throws IOException, InterruptedException {
-            FileSystem fs = FileSystem.get(context.getConfiguration());
-            path = fs.makeQualified(((FileSplit) split).getPath());
+            path = ((FileSplit) split).getPath();
         }
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
             if (!processed) {
                 try {
-                    System.out.println(path.toUri().toURL());
                     AudioInputStream in = AudioSystem.getAudioInputStream(path.toUri().toURL());
                     ByteBuffer buffer = ByteBuffer.allocate(in.available());
                     in.read(buffer.array());
                     value.set(buffer.array(), 0, buffer.array().length);
                 } catch (UnsupportedAudioFileException e) {
+                    System.out.println(path);
                     e.printStackTrace();
                 }
                 processed = true;
