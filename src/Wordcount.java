@@ -57,7 +57,6 @@ public class Wordcount {
 
         // variable declairations
         private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
 
         // map function (Context -> fixed parameter)
         public void map(Object key, Text value, Context context)
@@ -65,6 +64,7 @@ public class Wordcount {
 
             String[] split = value.toString().split("\n");
             for (String str : split) {
+                Text word = new Text();
                 word.set(str);
 
                 // emit a key-value pair
@@ -80,15 +80,10 @@ public class Wordcount {
     public static class IntSumReducer
             extends Reducer<Text, Text, Text, Text> {
 
-        // variables
-        private IntWritable result = new IntWritable();
-
-        // key : a disticnt word
-        // values :  Iterable type (data list)
         public void reduce(Text key, Text value, Context context)
                 throws IOException, InterruptedException {
 
-            String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value.toString();
+            String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value;
             Path inFile = new Path(inputSrc);
             Configuration conf = context.getConfiguration();
             FileSystem fs = FileSystem.get(conf);
@@ -117,7 +112,7 @@ public class Wordcount {
             in.close();
 
 
-            String outputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/out/" + value.toString();
+            String outputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/out/" + value;
             Path outFile = new Path(outputSrc);
             FSDataOutputStream outputStream = fs.create(outFile);
             outputStream.write(localBuffer.array());
