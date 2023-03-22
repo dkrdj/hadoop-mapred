@@ -42,6 +42,7 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
         public boolean nextKeyValue() throws IOException, InterruptedException {
             if (!processed) {
                 try {
+                    System.out.println(path.toUri().toURL());
                     AudioInputStream in = AudioSystem.getAudioInputStream(path.toUri().toURL());
                     ByteBuffer buffer = ByteBuffer.allocate(in.available());
                     in.read(buffer.array());
