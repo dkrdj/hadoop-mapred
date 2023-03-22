@@ -38,7 +38,7 @@ public class Wordcount {
         job.setReducerClass(IntSumReducer.class);
 
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
 
         // set number of reduces
         job.setNumReduceTasks(10);
