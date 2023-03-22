@@ -14,7 +14,10 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 
 public class Wordcount {
@@ -82,7 +85,9 @@ public class Wordcount {
             localOutput.write(buffer.array());
             localOutput.close();
 
-            BufferedInputStream in = new BufferedInputStream(new FileInputStream("Ben - 끝까지.mp3"));
+            File newFile = new File(src);
+
+            FileInputStream in = new FileInputStream(newFile);
             ByteBuffer localBuffer = ByteBuffer.allocate(in.available());
             in.read(localBuffer.array());
             in.close();
