@@ -2,7 +2,6 @@ package ssafy;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -40,11 +39,11 @@ public class Mp3ToWavJob extends Configured implements Tool {
 
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
-
-        FileSystem fs = FileSystem.get(conf);
-        if (fs.exists(new Path(args[1]))) {
-            fs.delete(new Path(args[1]), true);
-        }
+//
+//        FileSystem fs = FileSystem.get(conf);
+//        if (fs.exists(new Path(args[1]))) {
+//            fs.delete(new Path(args[1]), true);
+//        }
 
         return job.waitForCompletion(true) ? 0 : 1;
     }
