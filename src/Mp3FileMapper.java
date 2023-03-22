@@ -2,12 +2,13 @@ package ssafy;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.*;
 import java.nio.ByteBuffer;
 
-public class Mp3FileMapper extends Mapper<Path, BytesWritable, Path, BytesWritable> {
+public class Mp3FileMapper extends Mapper<Path, BytesWritable, Path, Text> {
 
     public void map(Path key, BytesWritable value, Context context) throws IOException, InterruptedException {
 
@@ -16,6 +17,7 @@ public class Mp3FileMapper extends Mapper<Path, BytesWritable, Path, BytesWritab
 
         File file = new File(src);
         if (!file.exists()) {
+            new File(src.split("/")[0]).mkdirs();
             file.createNewFile();
         }
         FileOutputStream outputStream = new FileOutputStream(file);
@@ -31,6 +33,6 @@ public class Mp3FileMapper extends Mapper<Path, BytesWritable, Path, BytesWritab
         BytesWritable output = new BytesWritable();
         output.set(buffer.array(), 0, buffer.array().length);
 
-        context.write(key, output);
+        context.write(key, new Text(src));
     }
 }
