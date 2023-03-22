@@ -37,6 +37,8 @@ public class Mp3ToWavJob extends Configured implements Tool {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(BytesWritable.class);
         job.setNumReduceTasks(1);
+        job.getConfiguration().setBoolean("mapreduce.task.debug", true);
+        job.getConfiguration().setBoolean("mapreduce.job.useroutput.enabled", true);
 
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
