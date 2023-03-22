@@ -38,7 +38,8 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
         }
 
         public boolean nextKeyValue() throws IOException, InterruptedException {
-            if (!processed && !path.toUri().toURL().toString().equals("hdfs://")) {
+            if (!processed) {
+                // && !path.toUri().toURL().toString().equals("hdfs://")
                 try {
                     System.out.println(path.toUri().toURL().toString());
                     AudioInputStream in = AudioSystem.getAudioInputStream(path.toUri().toURL());
@@ -46,8 +47,7 @@ public class Mp3InputFormat extends FileInputFormat<Path, BytesWritable> {
                     in.read(buffer.array());
                     value.set(buffer.array(), 0, buffer.array().length);
                 } catch (UnsupportedAudioFileException e) {
-                    System.out.println(path);
-                    e.printStackTrace();
+                    return false;
                 }
                 processed = true;
                 return true;
