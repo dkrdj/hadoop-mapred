@@ -14,11 +14,9 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 public class Wordcount {
     /* Main function */
@@ -103,11 +101,30 @@ public class Wordcount {
                 new File(src.split("/")[0]).mkdirs();
                 file.createNewFile();
             }
-
-
             FileOutputStream localOutput = new FileOutputStream(file);
             localOutput.write(buffer.array());
             localOutput.close();
+            //파이썬 코드 실행
+            ProcessBuilder pb = new ProcessBuilder("python3", "test.py");
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+            int exitval = process.waitFor();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(">>>  " + line); // 표준출력에 쓴다
+            }
+
+            if (exitval != 0) {
+                //비정상종료
+                System.out.println("비정상종료");
+            } else {
+                System.out.println("성공");
+            }
+
+            //파이썬 코드 종료
 
             File newFile = new File(src);
 
@@ -122,7 +139,7 @@ public class Wordcount {
             FSDataOutputStream outputStream = fs.create(outFile);
             outputStream.write(localBuffer.array());
             outputStream.close();
-            context.write(key, value);
+            context.write(key, new Text(line));
         }
     }
 }
