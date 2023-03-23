@@ -13,6 +13,7 @@ import org.apache.hadoop.util.GenericOptionsParser;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.Arrays;
 
 public class Wordcount {
     /* Main function */
@@ -21,6 +22,8 @@ public class Wordcount {
         String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
         if (otherArgs.length != 2) {
             System.err.println("Usage: <in> <out>");
+            System.err.println(Arrays.toString(otherArgs));
+            System.out.println(Arrays.toString(otherArgs));
             System.exit(2);
         }
         Job job = new Job(conf, "word count");
@@ -35,7 +38,6 @@ public class Wordcount {
 
         // set number of reduces
         job.setNumReduceTasks(10);
-
         // set input and output directories
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
         FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
