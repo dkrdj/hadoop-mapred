@@ -1,1 +1,4 @@
-print(1)
+import socket
+
+hostname = socket.gethostname()
+print("worker:", hostname)

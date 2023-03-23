@@ -111,11 +111,6 @@ public class Wordcount {
 
                 String line = br.readLine();
 
-                if (exitval != 0) { //비정상종료
-                    System.out.println("비정상종료");
-                } else {
-                    System.out.println("성공");
-                }
 //                파이썬 코드 종료
 
 //                File newFile = new File(src);
