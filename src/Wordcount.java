@@ -1,6 +1,6 @@
 package ssafy;
 
-import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -9,24 +9,30 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Arrays;
 
-public class Wordcount {
+public class Wordcount extends Configured implements Tool {
     /* Main function */
     public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-        if (otherArgs.length != 2) {
+
+        int exitCode = ToolRunner.run(new Wordcount(), args);
+        System.exit(exitCode);
+    }
+
+    @Override
+    public int run(String[] args) throws Exception {
+        if (args.length != 2) {
             System.err.println("Usage: <in> <out>");
-            System.err.println(Arrays.toString(otherArgs));
-            System.out.println(Arrays.toString(otherArgs));
+            System.err.println("에러" + Arrays.toString(args));
             System.exit(2);
         }
-        Job job = new Job(conf, "word count");
+        System.err.println(Arrays.toString(args));
+        Job job = new Job(getConf(), "word count");
         job.setJarByClass(Wordcount.class);
 
         // let hadoop know my map and reduce classes
@@ -39,9 +45,10 @@ public class Wordcount {
         // set number of reduces
         job.setNumReduceTasks(10);
         // set input and output directories
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        return job.waitForCompletion(true) ? 0 : 1;
     }
 
     /*
