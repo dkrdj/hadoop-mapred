@@ -2,7 +2,7 @@
 <configuration>
     <property>
         <name>mapreduce.job.reduces</name>
-        <value>10</value>
+        <value>100</value>
     </property>
     <property>
         <name>mapred.reduce.slowstart.completed.maps</name>
