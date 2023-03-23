@@ -1,9 +1,6 @@
 package ssafy;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataInputStream;
-import org.apache.hadoop.fs.FSDataOutputStream;
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -14,8 +11,9 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.*;
-import java.nio.ByteBuffer;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class Wordcount {
@@ -82,27 +80,27 @@ public class Wordcount {
         public void reduce(Text key, Iterable<Text> values, Context context)
                 throws IOException, InterruptedException {
             for (Text value : values) {
-                String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value;
-                Path inFile = new Path(inputSrc);
-                Configuration conf = context.getConfiguration();
-                FileSystem fs = FileSystem.get(conf);
-                FSDataInputStream inputStream = fs.open(inFile);
-                ByteBuffer buffer = ByteBuffer.allocate(inputStream.available());
-                inputStream.read(buffer.array());
-                inputStream.close();
-
-                String src = value.toString();
-                File file = new File(src);
-                if (!file.exists()) {
-                    new File(src.split("/")[0]).mkdirs();
-                    file.createNewFile();
-                }
-
-
-                FileOutputStream localOutput = new FileOutputStream(file);
-                localOutput.write(buffer.array());
-                localOutput.close();
-
+//                String inputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/music/" + value;
+//                Path inFile = new Path(inputSrc);
+//                Configuration conf = context.getConfiguration();
+//                FileSystem fs = FileSystem.get(conf);
+//                FSDataInputStream inputStream = fs.open(inFile);
+//                ByteBuffer buffer = ByteBuffer.allocate(inputStream.available());
+//                inputStream.read(buffer.array());
+//                inputStream.close();
+//
+//                String src = value.toString();
+//                File file = new File(src);
+//                if (!file.exists()) {
+//                    new File(src.split("/")[0]).mkdirs();
+//                    file.createNewFile();
+//                }
+//
+//
+//                FileOutputStream localOutput = new FileOutputStream(file);
+//                localOutput.write(buffer.array());
+//                localOutput.close();
+//
                 //파이썬 코드 실행
                 ProcessBuilder pb = new ProcessBuilder("python", "test.py");
                 pb.redirectErrorStream(true);
@@ -121,22 +119,22 @@ public class Wordcount {
                 } else {
                     System.out.println("성공");
                 }
-                //파이썬 코드 종료
+//                파이썬 코드 종료
 
-                File newFile = new File(src);
-
-                FileInputStream in = new FileInputStream(newFile);
-                ByteBuffer localBuffer = ByteBuffer.allocate(in.available());
-                in.read(localBuffer.array());
-                in.close();
-
-
-                String outputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/out/" + value;
-                Path outFile = new Path(outputSrc);
-                FSDataOutputStream outputStream = fs.create(outFile);
-                outputStream.write(localBuffer.array());
-                outputStream.close();
-                context.write(new Text(inputSrc), new Text(line));
+//                File newFile = new File(src);
+//
+//                FileInputStream in = new FileInputStream(newFile);
+//                ByteBuffer localBuffer = ByteBuffer.allocate(in.available());
+//                in.read(localBuffer.array());
+//                in.close();
+//
+//
+//                String outputSrc = "hdfs://ip-172-26-0-222.ap-northeast-2.compute.internal:9000/user/j8a603/out/" + value;
+//                Path outFile = new Path(outputSrc);
+//                FSDataOutputStream outputStream = fs.create(outFile);
+//                outputStream.write(localBuffer.array());
+//                outputStream.close();
+                context.write(key, new Text(line));
             }
         }
     }
