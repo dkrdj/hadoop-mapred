@@ -1,4 +1,5 @@
 import socket
 
 hostname = socket.gethostname()
-print("worker:", hostname)
+ip_address = socket.gethostbyname(hostname)
+print("ip :", ip_address)
