@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>mapreduce.job.reduces</name>
+        <value>10</value>
+    </property>
+    <property>
+        <name>mapred.reduce.slowstart.completed.maps</name>
+        <value>0.3</value>
+    </property>
+</configuration>
