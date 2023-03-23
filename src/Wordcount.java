@@ -109,10 +109,7 @@ public class Wordcount {
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
 
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println(">>>  " + line); // 표준출력에 쓴다
-                }
+                String line = br.readLine();
 
                 if (exitval != 0) { //비정상종료
                     System.out.println("비정상종료");
