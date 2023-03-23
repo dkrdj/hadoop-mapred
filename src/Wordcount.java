@@ -104,7 +104,7 @@ public class Wordcount {
                 localOutput.close();
 
                 //파이썬 코드 실행
-                ProcessBuilder pb = new ProcessBuilder("python3", "test.py");
+                ProcessBuilder pb = new ProcessBuilder("python", "test.py");
                 pb.redirectErrorStream(true);
                 Process process = pb.start();
                 int exitval = process.waitFor();
