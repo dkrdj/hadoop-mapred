@@ -11,10 +11,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.net.InetAddress;
 
 public class Wordcount {
     /* Main function */
@@ -102,17 +100,17 @@ public class Wordcount {
 //                localOutput.close();
 //
                 //파이썬 코드 실행
-                ProcessBuilder pb = new ProcessBuilder("python3", "test.py");
-                pb.redirectErrorStream(true);
-                Process process = pb.start();
-                int exitval = process.waitFor();
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
-
-                String line = br.readLine();
+//                ProcessBuilder pb = new ProcessBuilder("python3", "test.py");
+//                pb.redirectErrorStream(true);
+//                Process process = pb.start();
+//                int exitval = process.waitFor();
+//
+//                BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
+//
+//                String line = br.readLine();
 
 //                파이썬 코드 종료
-
+                InetAddress ip = InetAddress.getLocalHost();
 //                File newFile = new File(src);
 //
 //                FileInputStream in = new FileInputStream(newFile);
@@ -126,7 +124,7 @@ public class Wordcount {
 //                FSDataOutputStream outputStream = fs.create(outFile);
 //                outputStream.write(localBuffer.array());
 //                outputStream.close();
-                context.write(key, new Text(line));
+                context.write(key, new Text(ip.getHostAddress()));
             }
         }
     }
